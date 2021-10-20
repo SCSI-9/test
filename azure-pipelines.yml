@@ -10,7 +10,7 @@ variables:
   DESTIONATION_URL: $[replace(variables['DESTIONATION_URL'], 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper', 'git@github.com:SCSI-9/test.git')]
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: ubuntu-20.04
 
 steps:
 - task: ShellScript@2
