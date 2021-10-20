@@ -11,7 +11,7 @@ pool:
 
 steps:
 - bash: |
-    sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
+    sed -i "s|helllo|Bye|g" Hello-world
   displayName: 'Change .gitmodules'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
 
