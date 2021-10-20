@@ -27,7 +27,10 @@ steps:
     #failOnStandardError: false
 - script:
      git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test
-     ls
+     sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" .gitmodules
+     git add .
+     git commit -m "changes"
+     git push
 - bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
         +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
