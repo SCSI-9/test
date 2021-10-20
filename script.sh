@@ -4,3 +4,4 @@ SOURCE_URL=git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper
 echo $SOURCE_URL
 git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test
 sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
+cat gitmodules
