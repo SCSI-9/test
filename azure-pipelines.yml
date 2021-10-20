@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: |
+- bash: |
     sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
   displayName: 'Change .gitmodules'
   workingDirectory: $(Build.SourcesDirectory)/gitmodules
