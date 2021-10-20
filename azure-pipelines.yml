@@ -12,18 +12,14 @@ variables:
 pool:
   vmImage: ubuntu-latest
 
-
-
-
-
 steps:
-- script: - task: Bash@3
+  - 
+- task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
       # Write your commands here
       sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
-
 - bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
         +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
