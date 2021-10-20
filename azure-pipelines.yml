@@ -6,8 +6,8 @@
 trigger:
 - main
 variables:
-  foo: 'beef'
-  bar: $[replace(variables['foo'], 'beef', 'steak')]
+  SOURCE_URL: 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper'
+  DESTIONATION_URL: $[replace(variables['DESTIONATION_URL'], 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper', 'git@github.com:SCSI-9/test.git')]
 
 pool:
   vmImage: ubuntu-latest
@@ -15,11 +15,7 @@ pool:
 
 
 steps:
-- script: echo This should be steak but it is $(bar)
-- bash: |
-   git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test 
-   mv newfile1 newfile2
-  displayName: 'rename file'
+- script: sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
 
 - bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
