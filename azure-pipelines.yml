@@ -14,8 +14,15 @@ pool:
 
 
 
+
+
 steps:
-- script: sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
+- script: - task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
 
 - bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
