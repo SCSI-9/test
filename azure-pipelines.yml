@@ -13,7 +13,7 @@ steps:
 - script: |
     sed -i "s|$SOURCE_URL|$DESTIONATION_URL|g" gitmodules
   displayName: 'Change .gitmodules'
-  workingDirectory: $(Build.SourcesDirectory)
+  workingDirectory: $(Build.SourcesDirectory)/gitmodules
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
 
 
