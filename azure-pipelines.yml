@@ -9,10 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
+steps:
 - bash: |
      sed -i "s|helllo|Bye|g" Hello-world
      git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
         +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
-displayName: 'Copy to Github'
-condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+  displayName: 'Copy to Github'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
