@@ -11,6 +11,7 @@ pool:
 
 steps:
 - script: |
+   git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test
    mv newfile1 newfile2
   displayName: 'rename file'
 
