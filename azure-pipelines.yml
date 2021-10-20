@@ -5,14 +5,20 @@
 
 trigger:
 - main
+variables:
+  foo: 'beef'
+  bar: $[replace(variables['foo'], 'beef', 'steak')]
 
 pool:
   vmImage: ubuntu-latest
 
+
+
 steps:
+- script: echo This should be steak but it is $(bar)
 - bash: |
-   git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test \
-     mv newfile1 newfile2
+   git clone git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper/test 
+   mv newfile1 newfile2
   displayName: 'rename file'
 
 - bash: |
