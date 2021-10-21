@@ -21,7 +21,7 @@ steps:
    git config --global user.name "a.gorulev"
    git add .
    git commit -m "change gitmodules"
-   git push origin -u main
+   git push origin main
   displayName: 'Change gitmodules'
 
 - bash: |
