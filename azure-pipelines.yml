@@ -13,14 +13,12 @@ pool:
   vmImage: ubuntu-20.04
 
 steps:
-- task: ShellScript@2
-  inputs:
-    scriptPath: script.sh
+
 - bash: |
    find . -type f -name "gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
    cat gitmodules
-   git config --global user.email "adil.hasanov@hotmail.com"
-   git config --global user.name "scsi-9"
+   git config --global user.email "a.gorulev@kernelics.com"
+   git config --global user.name "a.gorulev"
    git add .
    git commit -m "change gitmodules"
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
