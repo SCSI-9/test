@@ -19,9 +19,8 @@ steps:
    cat Hello-world
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
-   git fetch origin main:tmp
-   git rebase tmp
-   git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
-   git branch -D tmp
+   git add .
+   git commit -m "change gitmodules"
+   git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME
    git show-ref
   displayName: 'fix links git GitHub'
