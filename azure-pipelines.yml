@@ -15,7 +15,6 @@ pool:
 steps:
 - bash: |
    find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i -e 's+$DESTIONATION_URL+$SOURCE_URL+g' 
-   sed -i '/^url/s/$/.git/' .gitmodules
    cat .gitmodules
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
