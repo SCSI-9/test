@@ -19,9 +19,9 @@ steps:
    cat Hello-world
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
+   git pull origin main
    git add .
    git commit -m "change gitmodules"
-   git pull origin main
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
