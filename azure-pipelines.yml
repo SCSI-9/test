@@ -19,7 +19,7 @@ steps:
    cat Hello-world
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
-   git pull https://github.com/SCSI-9/test.git
+   git pull https://github.com/SCSI-9/test.git main
    git add .
    git commit -m "change gitmodules"
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
