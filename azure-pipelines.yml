@@ -21,6 +21,7 @@ steps:
     #cwd: '' # Optional
     #failOnStandardError: false
 - bash: |
+    find / -name gitmodules
     echo "hello" > testfile
     cat testfile
 - bash: |
