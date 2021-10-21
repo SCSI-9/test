@@ -14,7 +14,7 @@ pool:
 
 steps:
 - bash: |
-   find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
+#   find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
    find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i '/^url/s/$/.git/'
    cat .gitmodules
    git config --global user.email "adil.hasanov@hotmail.com"
