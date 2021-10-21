@@ -24,7 +24,7 @@ steps:
    git push
   displayName: 'Change gitmodules'
 
--  bash: |
+- bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
         +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
   displayName: 'Copy to Github'
