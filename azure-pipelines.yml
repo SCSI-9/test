@@ -6,15 +6,15 @@
 trigger:
 - main
 variables:
-  SOURCE_URL: 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper'
-  DESTIONATION_URL: $[replace(variables['DESTIONATION_URL'], 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper', 'git@github.com:SCSI-9/test.git')]
+    DESTIONATION_URL=git@github.com:SCSI-9/test.git
+    SOURCE_URL=git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper
 
 pool:
   vmImage: ubuntu-20.04
 
 steps:
 - bash: |
-   find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
+   find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+$SOURCE_URL+$DESTIONATION_URL+g'
    cat .gitmodules
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
