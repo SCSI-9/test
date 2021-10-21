@@ -13,6 +13,10 @@ pool:
   vmImage: ubuntu-20.04
 
 steps:
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: 'ssh.dev.azure.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H'
+    sshKeySecureFile: 'key'
 
 - bash: |
    find . -type f -name "gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
@@ -22,6 +26,7 @@ steps:
    git add .
    git commit -m "change gitmodules"
    git push -u origin main
+   git show-ref
   displayName: 'Change gitmodules'
 
 - bash: |
