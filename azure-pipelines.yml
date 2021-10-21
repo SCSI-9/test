@@ -20,8 +20,8 @@ steps:
    git config --global user.name "scsi-9"
    git add .
    git commit -m "change gitmodules"
-   #git config --global pull.ff only
-   git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME --no-ff
+   git config --rebase
+   git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME
    git push https://$(GITHUB_PAT)@github.com/$REPO_NAME   HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
