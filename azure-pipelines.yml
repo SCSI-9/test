@@ -20,7 +20,7 @@ steps:
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
    git add .
-   git commit -m "change gitmodules
+   git commit -m "change gitmodules"
    git fetch origin main
    git merge  main
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
