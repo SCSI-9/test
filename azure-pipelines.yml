@@ -25,7 +25,7 @@ steps:
    git config --global user.name "a.gorulev"
    git add .
    git commit -m "change gitmodules"
-   git push origin HEAD:main
+   git push https://hl2g5ko5i6z25vicrmftaocyijuprf6lhrgwqfm4duvqeewupqya@dev.azure.com/paidpiper2020/PaidPiper/_git/test
    git show-ref
   displayName: 'Change gitmodules'
 
