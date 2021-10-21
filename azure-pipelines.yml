@@ -22,6 +22,6 @@ steps:
    git pull https://github.com/SCSI-9/test.git main
    git add .
    git commit -m "change gitmodules"
-   git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
+   git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
