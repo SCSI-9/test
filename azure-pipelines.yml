@@ -16,12 +16,6 @@ steps:
 - task: ShellScript@2
   inputs:
     scriptPath: script.sh
-    #args: '' # Optional
-    #disableAutoCwd: false # Optional
-    #cwd: '' # Optional
-    #failOnStandardError: false
-- bash: |
-    cat gitmodules
 - bash: |
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
         +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
