@@ -20,8 +20,9 @@ steps:
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
    git pull https://github.com/SCSI-9/test.git main
-   git add .
-   git commit -m "change gitmodules"
+   git fetch origin main:tmp
+   git rebase tmp
    git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
+   git branch -D tmp
    git show-ref
   displayName: 'fix links git GitHub'
