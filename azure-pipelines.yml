@@ -16,12 +16,11 @@ steps:
 - bash: |
    find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
    cat .gitmodules
-   cat Hello-world
    git config --global user.email "adil.hasanov@hotmail.com"
    git config --global user.name "scsi-9"
+   git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME --rebase origin main
    git add .
    git commit -m "change gitmodules"
-   git rebase main
-   git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
+   git push https://$(GITHUB_PAT)@github.com/$REPO_NAME origin HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
