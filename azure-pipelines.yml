@@ -13,24 +13,11 @@ pool:
   vmImage: ubuntu-20.04
 
 steps:
-- task: InstallSSHKey@0
-  inputs:
-    knownHostsEntry: 'ssh.dev.azure.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H'
-    sshKeySecureFile: 'key'
-
 - bash: |
-   find . -type f -name "gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
-   cat gitmodules
-   git config --global user.email "a.gorulev@kernelics.com"
-   git config --global user.name "a.gorulev"
+   find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
+   cat .gitmodules
    git add .
    git commit -m "change gitmodules"
-   git push https://hl2g5ko5i6z25vicrmftaocyijuprf6lhrgwqfm4duvqeewupqya@dev.azure.com/paidpiper2020/PaidPiper/_git/test HEAD:main
+   git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
    git show-ref
   displayName: 'Change gitmodules'
-
-- bash: |
-   git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
-        +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
-  displayName: 'Copy to Github'
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
