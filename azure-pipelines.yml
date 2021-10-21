@@ -25,7 +25,7 @@ steps:
    git config --global user.name "a.gorulev"
    git add .
    git commit -m "change gitmodules"
-   git push
+   git push origin HEAD:main
    git show-ref
   displayName: 'Change gitmodules'
 
