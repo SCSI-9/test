@@ -14,11 +14,11 @@ pool:
 
 steps:
 - bash: |
-   git config --global user.email "adil.hasanov@hotmail.com"
-   git config --global user.name "scsi-9"
-   git fetch --all
+   git pull https://hl2g5ko5i6z25vicrmftaocyijuprf6lhrgwqfm4duvqeewupqya@dev.azure.com/paidpiper2020/PaidPiper/_git/test
    find . -type f -name ".gitmodules" -print0 | xargs -0 sed -i 's+git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper+git@github.com:SCSI-9/test.git+g'
    cat .gitmodules
+   git config --global user.email "adil.hasanov@hotmail.com"
+   git config --global user.name "scsi-9"
    git add .
    git commit -m "change gitmodules"
    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
