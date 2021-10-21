@@ -20,7 +20,7 @@ steps:
    git config --global user.name "scsi-9"
    git add .
    git commit -m "change gitmodules"
-   git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME --rebase origin main
-   git push https://$(GITHUB_PAT)@github.com/$REPO_NAME  origin HEAD:main
+   git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME 
+   git push https://$(GITHUB_PAT)@github.com/$REPO_NAME   HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
