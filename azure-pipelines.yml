@@ -21,7 +21,7 @@ steps:
    git config --global user.name "scsi-9"
    git add .
    git commit -m "change gitmodules"
-   git pull origin https://github.com/SCSI-9/test.git main
+   git rebase main
    git push  https://$(GITHUB_PAT)@github.com/$REPO_NAME HEAD:main
    git show-ref
   displayName: 'fix links git GitHub'
