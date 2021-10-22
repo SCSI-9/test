@@ -21,7 +21,7 @@ steps:
    git add .
    git commit -m "change gitmodules"
    git config pull.rebase true
-   git rm .gitignore
+   git rm .gitmodules
    git rebase --continue
    git pull https://$(GITHUB_PAT)@github.com/$REPO_NAME
    git push https://$(GITHUB_PAT)@github.com/$REPO_NAME   HEAD:main
