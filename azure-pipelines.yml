@@ -10,7 +10,7 @@ variables:
   SOURCE_URL: 'git@ssh.dev.azure.com:v3/paidpiper2020/PaidPiper'
 
 pool:
-  vmImage: ubuntu-20.04
+  vmImage: ubuntu-18.04
 
 steps:
 - bash: |
